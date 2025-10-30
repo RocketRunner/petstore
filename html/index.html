@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>Petstore</title>
+</head>
+
+<body>
+
+  <h1>-- Petstore --</h1>
+
+  <hr>
+  <h1>Opgave 1</h1>
+  Hent alle kæledyr.
+  <form action="/pets" method="GET">
+    <button type="submit">Hent</button>
+  </form>
+
+  <hr>
+  <h1>Opgave 2</h1>
+  Hent et kæledyr med et bestemt id
+  <form id="opgave_2">
+    <label for="id">Id</label>
+    <input type="text" name="id" id="id" required placeholder="1">
+    <br><br>
+
+    <button type="submit">Hent</button>
+  </form>
+
+
+  <hr>
+  <h1>Opgave 3</h1>
+  Hent et kæledyr med et bestemt navn
+  <form id="opgave_3">
+    <label for="name_opg3">Navn</label>
+    <input type="text" name="name_opg3" id="name_opg3" required placeholder="henning">
+    <br><br>
+
+    <button type="submit">Hent</button>
+  </form>
+
+  <hr>
+  <h1>Opgave 4</h1>
+  Hent alle kæledyr med et bestemt navn
+  <form id="opgave_4">
+    <label for="name_opg4">Navn</label>
+    <input type="text" name="name_opg4" id="name_opg4" required placeholder="henning">
+    <br><br>
+
+    <button type="submit">Hent</button>
+  </form>
+
+  <hr>
+  <h1>Opgave 5</h1>
+  Hent alle kæledyr med et bestemt navn og type
+  <form id="opgave_5">
+    <label for="name_opg5">Navn</label>
+    <input type="text" name="name_opg5" id="name_opg5" required placeholder="henning">
+    <br><br>
+
+    <label for="type_opg5">Type</label>
+    <input type="text" name="type_opg5" id="type_opg5" required placeholder="hund">
+    <br><br>
+
+    <button type="submit">Hent</button>
+  </form>
+
+
+  <hr>
+  <h1>Opgave 6</h1>
+  Omdøb et kæledyr ved at angive dets id og det nye navn:
+  <form action="/pets/rename" method="POST">
+    <label for="name">Id:</label>
+    <input type="text" name="id" id="id" required placeholder="1">
+    <br><br>
+
+    <label for="name">Nyt navn:</label>
+    <input type="text" name="name" id="name" required>
+    <br><br>
+
+    <button type="submit">Ændre Navn</button>
+  </form>
+
+  <hr>
+  <h1>Opgave 7</h1>
+  Tilføj et nyt kæledyr
+  <form action="/pets" method="POST">
+    <label for="name_add">Navn</label>
+    <input type="text" name="name_add" id="name_add" required><br><br>
+
+    <label for="type_add">Type</label>
+    <input type="text" name="type_add" id="type_add" required><br><br>
+
+    <button type="submit">Tilføj</button>
+  </form>
+
+  <hr>
+  <h1>Opgave 8
+  </h1>
+  Vis alle kæledyr af en bestemt status:
+  <form id="opgave_8">
+    <label for="status_opg8">Status</label>
+
+    <select name="status_opg8" id="status_opg8" required>
+      <option value="">Vælg status</option>
+      <option value="tilsalg">Til salg</option>
+      <option value="solgt">Solgt</option>
+    </select>
+    <br><br>
+
+    <button type="submit">Hent</button>
+  </form>
+
+  <hr>
+  <h1>Opgave 9</h1>
+  Sælg et kæledyr
+  <form action="/pets/sell" method="POST">
+    <label for="id">Id</label>
+    <input type="text" name="id" id="id" required placeholder="1">
+    <br><br>
+
+    <button type="submit">Sælg</button>
+  </form>
+
+
+  <script>
+    document.getElementById('opgave_2').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var id = document.getElementById('id').value;
+      window.location.href = '/pets/' + encodeURIComponent(id);
+    });
+
+    document.getElementById('opgave_3').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('name_opg3').value;
+      window.location.href = '/pets/name/' + encodeURIComponent(name);
+    });
+
+    document.getElementById('opgave_4').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('name_opg4').value;
+      window.location.href = '/pets/names/' + encodeURIComponent(name);
+    });
+
+    document.getElementById('opgave_5').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('name_opg5').value;
+      var type = document.getElementById('type_opg5').value;
+      window.location.href = '/pets/names/' + encodeURIComponent(name) + '/type/' + encodeURIComponent(type);
+    });
+
+    document.getElementById('opgave_8').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var status = document.getElementById('status_opg8').value;
+      window.location.href = '/pets/status/' + encodeURIComponent(status);
+    });
+  </script>
+
+
+</body>
+
+</html>
