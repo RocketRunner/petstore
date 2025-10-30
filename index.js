@@ -21,7 +21,7 @@ let allPets = [
     { id: 1, name: "vovse", type: "hund", status: "tilsalg" },
     { id: 2, name: "misser", type: "kat", status: "tilsalg" },
     { id: 3, name: "henning", type: "kat", status: "solgt" },
-    { id: 4, name: "henning", type: "hund", status: "solgt" },
+    { id: 4, name: "henning", type: "hund", status: "solgt" }
 ];
 
 // OPGAVE 1

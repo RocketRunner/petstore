@@ -37,11 +37,12 @@ app.get("/pets/:id", (request, response) => {
     const pet = allPets.find(p => p.id === petId);
     //const pet = getPetById(request.params.id);
 
+
     if (pet) {
         response.json(pet);
 
     } else {
-        response.status(404).json({ error: "Ingen kæledyr fundet" });
+        notFoundResponse(response);
     }
 });
 
@@ -55,7 +56,7 @@ app.get("/pets/name/:name", (request, response) => {
         response.json(pet);
 
     } else {
-        response.status(404).json({ error: "Ingen kæledyr fundet" });
+        notFoundResponse(response);
     }
 });
 
@@ -69,6 +70,7 @@ app.get("/pets/names/:name", (request, response) => {
         response.json(pets);
 
     } else {
+        //sig du ikke kan finde 
         notFoundResponse(response);
     }
 });
@@ -89,9 +91,7 @@ app.get("/pets/names/:name/type/:type", (request, response) => {
         response.json(pet);
 
     } else {
-        response
-            .status(404)
-            .json({ error: "Ingen kæledyr fundet med det navn og type" });
+        notFoundResponse(response);
     }
 });
 
@@ -117,10 +117,10 @@ app.post("/pets/rename", (request, response) => {
 // POST endpoint - Tilføj et nyt kæledyr
 app.post("/pets", (request, response) => {
     const newPet = {
-        id: pets.length + 1,
+        id: allPets.length + 1,
         name: request.body.name,
         type: request.body.type,
-        status: "tilsalg",
+        status: "tilsalg"
     };
 
     allPets.push(newPet);
@@ -155,7 +155,6 @@ app.post("/pets/sell", (request, response) => {
         notFoundResponse(response);
     }
 });
-
 
 // Hjælpefunktion til at finde kæledyr efter ID
 function getPetById(id) {
