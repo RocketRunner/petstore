@@ -1,25 +1,30 @@
+
 {
   // These tasks will run in order when initializing your CodeSandbox project.
 	"setupTasks": [
 		{
 			"name": "Install Dependencies",
 			"command": "yarn install"
-		}
+		},
+    {
+      "name": "install express",
+      "command": "npm install express"
+    },
+    {
+      "name": "install nodemon",
+      "command": "npm install -g nodemon"
+    }
 	],
 
   // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
-    "start": {
+    "start-pethop": {
       "name": "start",
-      "command": "node index.js",
+      "command": "nodemon index.js",
       "runAtStart": true,
       "preview": {
         "port": 8080
       }
-    },
-    "install": {
-      "name": "install dependencies",
-      "command": "yarn install"
     }
   }
 }
