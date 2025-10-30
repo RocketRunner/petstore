@@ -30,6 +30,8 @@
 
 6. Hent kode fra github
 
+   https://github.com/RocketRunner/petstore
+
 7. start node.js server fra en terminal
 
    ```sh
@@ -45,7 +47,8 @@
 1. Opret en bruger med dit Google ID på [https://codesandbox.io/](https://codesandbox.io/)
 
 2. Åben kode fra github.com
+    [https://codesandbox.io/p/github/RocketRunner/petstore](https://codesandbox.io/p/github/RocketRunner/petstore)
 
-3. Åben webapp i din browser
-   find url i dit preview
+3. Åben preview i din browser
    ![alt text](images/preview.png)
+
